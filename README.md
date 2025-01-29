@@ -13,7 +13,7 @@ Make sure your inputfile and your opcodes file are also in the same folder!
 
 ![scriptran](https://github.com/user-attachments/assets/03dddfb4-5e9f-4706-8769-d2bed1cb1080)
 
-Refer to the next section for language guidelines.
+example code included is to compute the 10th fibonacci number. I can't verify it works as the CPU is only theoretical right now, but the main point is to show that the assembler works ;)
 ## Language guidelines
 Any non-indented characters (except for "/ ") will be used as a tag, tags store the line number of the next code after it. Tags may be referred to as operands, such as for a jump instruction. All indented code will be treated as an instruction. Comments must be preceded by "/ ", no in-line comments. Numbers must be preceded by either "#" or "$", for decimal and hexadecimal respectively. Decimal numbers can be any length, but hex numbers must be 4 digits long.
 
