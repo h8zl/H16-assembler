@@ -1,0 +1,39 @@
+/ setup, putting variables in $F000 because it's empty
+  LDI #0
+  STA $F000
+  LDI #1
+  STA $F001
+
+  LDI #10
+  STA $F003
+  LDI #1
+  STA $F004
+
+loop:
+/ adding previous 2 numbers
+  LDA $F000
+  ADD $F001
+  STA $F002
+
+/ transferring numbers to correct
+/ memory addresses for next loop
+  LDA $F001
+  STA $F000
+  LDA $F002
+  STA $F001
+
+/ subtract from 10 to count loop iterations
+  LDA $F003
+  SUB $F004
+
+/ jump to out when zero flag is raised
+/ (when loop has iterated 10x)
+/ otherwise, jump to beginning of loop
+  JOZ out
+  JMP loop
+
+out:
+/ store final result in F00F
+  LDA $F002
+  STA $F00F
+  HLT
